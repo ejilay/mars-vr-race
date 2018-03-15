@@ -39,18 +39,12 @@ public class TransformSync : MonoBehaviour {
                 t.position = scaledPos;
             }
             if (SyncRotate)
-            {
-                if (RotAxis01.sqrMagnitude != 1)
-                {
-                    var euler = sourceTransform.rotation.eulerAngles;
-                    euler.x = euler.x * RotAxis01.x;
-                    euler.y = euler.y * RotAxis01.y;
-                    euler.z = euler.z * RotAxis01.z;
-                    t.rotation = Quaternion.Euler(euler);
-                } else
-                {
-                    t.rotation = sourceTransform.rotation;
-                }
+            {   
+                var euler = sourceTransform.localRotation.eulerAngles;
+                euler.x = euler.x * RotAxis01.x;
+                euler.y = euler.y * RotAxis01.y;
+                euler.z = euler.z * RotAxis01.z;
+                t.localRotation = Quaternion.Euler(euler);
             }
         }
 	}
