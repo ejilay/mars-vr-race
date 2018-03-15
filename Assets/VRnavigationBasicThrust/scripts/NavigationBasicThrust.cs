@@ -6,7 +6,8 @@ public class NavigationBasicThrust : MonoBehaviour
 {
     public Rigidbody NaviBase;
     public Vector3 ThrustDirection;
-    public float ThrustForce;
+    public float ThrustForce = 8;
+    public float MaxAngularVelocity = 2;
     public bool ShowTrustMockup = true;
     public GameObject ThrustMockup;
 
@@ -28,7 +29,7 @@ public class NavigationBasicThrust : MonoBehaviour
         if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger)) {
             tempVector = Quaternion.Euler(ThrustDirection) * Vector3.forward;
             NaviBase.AddForce(SourceTransform.rotation * tempVector * ThrustForce);
-            NaviBase.maxAngularVelocity = 2f;
+            NaviBase.maxAngularVelocity = MaxAngularVelocity;
         }
 
         // show trust mockup
