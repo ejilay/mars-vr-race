@@ -19,7 +19,7 @@ public class SteeringController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         var rotateVector = RightSnapperTransform.localPosition - LeftSnapperTransform.localPosition;
         rotateVector.z = 0;
 
